@@ -59,7 +59,7 @@ function startGame(){
     textFont(linoFont)
     text('Nightmares End', 450, 200)
     textFont(comiFont)
-    text('click x to start..', 575, 400)
+    text('click "x" to start..', 575, 400)
     text('options', 660, 450)
     text('???', 700, 500)
 
