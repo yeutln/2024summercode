@@ -47,6 +47,7 @@ function setup(){
 
    // Start playing music
    music.loop();
+   getAudioContext().resume();
 }
 
 function draw(){
