@@ -25,14 +25,14 @@ function preload(){
    dungeon = loadImage('dungeon.png');
    candles = loadImage('candles.gif');
    blood = loadImage('blood.png');
-   glitch = loadImage('glitch.png'); // Load glitch.png instead of glitch.gif
+   glitch = loadImage('glitch.png'); 
    torch = loadImage('torch.gif');
    main = loadImage('main.png');
 
    // Load fonts
    linoFont = loadFont('Linographer.ttf');
    comiFont = loadFont('comicate.ttf');
-   satanFont = loadFont('satan.ttf'); // Load satan.ttf font
+   satanFont = loadFont('satan.ttf'); 
 
    // Load music
    music = loadSound('music.mp3');
@@ -41,12 +41,13 @@ function preload(){
 function setup(){
    createCanvas(windowWidth, windowHeight);
 
-   // Set initial position of main character
+   
    mainX = 325;
    mainY = 230;
 
-   // Start playing music
+   
    music.loop();
+   getAudioContext().resume();
 }
 
 function draw(){
@@ -75,16 +76,16 @@ function screen1(){
    text('Nightmares End', width/2 , 200);
    textFont(comiFont);
 
-   // Check if options button is clicked
+   
    if (optionsClicked) {
       image(glitch, 0, 0, width, height); 
       textAlign(CENTER, CENTER);
       textSize(80); 
       fill(82, 14, 14);
-      textFont(satanFont); // Use satanFont for the text
+      textFont(satanFont); 
       text('START THE GAME', width/2, 600);
 
-      // Draw back button
+      
       fill(0, 150);
       rect(backButtonX, backButtonY, backButtonWidth, backButtonHeight, 10);
       fill(82, 14, 14);
@@ -105,7 +106,7 @@ function screen2(){
    image(bedroom, 100, 70, 1000, 650);
    image(main, mainX, mainY, 80, 80); 
 
-   // Movement controls for main character
+   
    if(keyIsDown(LEFT_ARROW) && mainX > 140){
       mainX -= 2.5;
    }
@@ -129,13 +130,13 @@ function keyPressed(){
 }
 
 function mousePressed(){
-   // Check if mouse is within options button area
+   
    if (mouseX > 660 && mouseX < 660 + textWidth('options') + 20 &&
        mouseY > 450 - 40 && mouseY < 450) {
       optionsClicked = true;
    }
 
-   // Check if mouse is within back button area on glitch screen
+   
    if (optionsClicked && mouseX > backButtonX && mouseX < backButtonX + backButtonWidth &&
        mouseY > backButtonY && mouseY < backButtonY + backButtonHeight) {
       optionsClicked = false; // Reset optionsClicked to go back
