@@ -1,26 +1,26 @@
-// Declare variables for images, fonts, and audio
+
 let bedroom, dungeon, candles, blood, glitch, torch, main;
 let linoFont, comiFont, satanFont, gorlaFont;
 let music;
 
-// Initial coordinates for main character
+
 let mainX = 50;
 let mainY = 50;
 
-// Screen identifier
+
 let screen = 0;
 
-// Boolean to track options button state
+
 let optionsClicked = false;
 
-// Back button variables
+
 let backButtonX = 20;
 let backButtonY = 20;
 let backButtonWidth = 120;
 let backButtonHeight = 40;
 
 function preload(){
-   // Load images
+  
    bedroom = loadImage('bedroom.png');
    dungeon = loadImage('dungeon.png');
    candles = loadImage('candles.gif');
@@ -100,7 +100,7 @@ function screen2(){
    image(bedroom, 100, 70, 1000, 650);
    image(main, mainX, mainY, 80, 80); 
 
-   // Movement controls for main character
+   
    if(keyIsDown(LEFT_ARROW) && mainX > 140){
       mainX -= 3;
    }
@@ -114,7 +114,7 @@ function screen2(){
       mainY += 3;
    }
 
-   // Check if main character is near specific coordinates for "The power is off.."
+   
    let distance1 = dist(mainX, mainY, 804, 250);
    if (distance1 < 50) { 
       fill(255);
@@ -127,7 +127,7 @@ function screen2(){
       noStroke(); 
    }
 
-   // Check if main character is near specific coordinates for "Weird.. my door is locked..."
+   
    let distance2 = dist(mainX, mainY, 938, 373);
    if (distance2 < 50) { 
       fill(255);
@@ -140,7 +140,7 @@ function screen2(){
       noStroke(); 
    }
 
-   // Check if main character is near specific coordinates for "It's so gloomy outside.."
+   
    let distance3 = dist(mainX, mainY, 573, 251);
    if (distance3 < 50) { 
       fill(255);
