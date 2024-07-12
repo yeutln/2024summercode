@@ -48,12 +48,10 @@ function preload() {
 }
 
 function setup() {
-   let canvas = createCanvas(windowWidth, windowHeight);
-   let ctx = canvas.elt.getContext('2d', { willReadFrequently: true });
+   createCanvas(windowWidth, windowHeight);
    mainX = 325;
    mainY = 230;
 }
-
 
 function draw() {
    if (screen === 0) {
@@ -152,7 +150,7 @@ function screen2() {
       noStroke();
    }
 
-   
+   // Check if main character is near specific coordinates for "It's so gloomy outside.."
    let distance3 = dist(mainX, mainY, 573, 235);
    if (distance3 < 50) {
       fill(255);
@@ -165,7 +163,7 @@ function screen2() {
       noStroke();
    }
 
-   
+   // Check if main character is near specific coordinates for "The power is off.." (new location)
    let distance4 = dist(mainX, mainY, 609, 542);
    if (distance4 < 50) {
       fill(255);
@@ -195,7 +193,7 @@ function screen3() {
    image(dungeon, 0, 0, windowWidth, windowHeight);
    image(main, mainX, mainY, 80, 80);
 
-   
+   // Movement controls for main character
    if (keyIsDown(LEFT_ARROW) && mainX > 280) {
       mainX -= 3;
    }
@@ -211,7 +209,7 @@ function screen3() {
 
    
 
-   
+   // Check if main character is near specific coordinates for the new text message
    let distance6 = dist(mainX, mainY, 308, 694);
    if (distance6 < 50) {
       fill(255);
@@ -220,13 +218,24 @@ function screen3() {
       textSize(30);
       textFont(gorlaFont);
       textAlign(CENTER, CENTER);
-      text('This dungeon was in my dream.. I have to escape!!', 338, 660);
+      text('This dungeon was in my dream.. I have to escape there should be a door on the other side!', 338, 660);
       noStroke();
    }
+
+
+   let distance7 = dist(mainX, mainY, 1310, 620);
+   if(distance7 < 50){
+   fill(255);
+   textSize(30);
+   textAlign(CENTER, CENTER);
+   text('Click on the door to open', 1330, 565);
+   }
+
 }
 
+
 function screen4() {
-   
+   // Display a black screen with the ending text
    background(0);
    fill(255, 0, 0);
    textAlign(CENTER, CENTER);
@@ -255,7 +264,7 @@ function mousePressed() {
       optionsClicked = false;
    }
 
-   
+   // Handle key collection
    if (!keyCollected && mouseX > keyX && mouseX < keyX + 50 && mouseY > keyY && mouseY < keyY + 50) {
       keyCollected = true;
    }
@@ -267,7 +276,7 @@ function mousePressed() {
       mainY = 700;
    }
 
- 
+   // Handle dungeon door click
    let dungeonDoorDistance = dist(mouseX, mouseY, dungeondoorX, dungeondoorY);
    if (dungeonDoorDistance < 50) {
       screen = 3;
