@@ -48,10 +48,12 @@ function preload() {
 }
 
 function setup() {
-   createCanvas(windowWidth, windowHeight);
+   let canvas = createCanvas(windowWidth, windowHeight);
+   let ctx = canvas.elt.getContext('2d', { willReadFrequently: true });
    mainX = 325;
    mainY = 230;
 }
+
 
 function draw() {
    if (screen === 0) {
