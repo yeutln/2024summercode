@@ -210,9 +210,6 @@ function screen3() {
    }
 
    
-   fill(255);
-   textSize(20);
-   text(`X: ${mainX}, Y: ${mainY}`, 50, 50);
 
    
    let distance6 = dist(mainX, mainY, 308, 694);
@@ -223,7 +220,7 @@ function screen3() {
       textSize(30);
       textFont(gorlaFont);
       textAlign(CENTER, CENTER);
-      text('This dungeon was exactly in my dream.. I have to escape!!', 338, 660);
+      text('This dungeon was in my dream.. I have to escape!!', 338, 660);
       noStroke();
    }
 }
